@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html lang="en"> 
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiles - Krzysztof Krawiec</title>
+  
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  
+    <!-- Style CSS -->
+    <link href="custom/css/style.css" rel="stylesheet">
+    <link href="custom/css/auth.css" rel="stylesheet">
+  
+    <!-- Font Awesome -->
+    <link href="vendor/fontawesome/css/all.css" rel="stylesheet">  
+  </head>
+  
+  <body>
+    <div class="container"><!-- Container -->
+      <div class="main"><!-- Main Div -->
+      <div class="clouds"></div>
+      <div class="custom-bg-solid"></div>
+  
+        <div class="content"><!-- Content Div -->
+
+          <div class="auth">
+            <div class="card-profile profile-bg card">
+              <div style="background-image: url(&quot;https://i.pinimg.com/originals/6a/9e/2c/6a9e2c0cab11c54b4ff98db6942b1855.jpg&quot;);" class="card-header">
+                <div class="card-avatar">
+                  <a href="#pablo">
+                    <img alt="..." class="img img-raised" src="custom/assets/slash.png"></a>
+                  </div>
+                </div>
+                <div class="card-body">
+                <h2 class="card-title">Sign in to<br><strong class="text-info">Slash</strong></h2>
+                <form action="" id="login-form">
+                  <div id="u" class="form-group">
+                    <input id="username" spellcheck=false class="form-control" name="username" type="text" size="18" alt="login" required="">
+                    <span class="form-highlight"></span>
+                    <span class="form-bar"></span>
+                    <label for="username" class="float-label">Email</label><erroru>
+                      Email is required
+                      <i>		
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                          <path d="M0 0h24v24h-24z" fill="none"/>
+                          <path d="M1 21h22l-11-19-11 19zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+                      </svg>
+                      </i>
+                    </erroru>
+                  </div>
+                  <div id="p" class="form-group">
+                    <input id="password" class="form-control" spellcheck=false name="password" type="password" size="18" alt="login" required="">
+                    <span class="form-highlight"></span>
+                    <span class="form-bar"></span>
+                    <label for="password" class="float-label">Password</label>
+                    <errorp>
+                      Password is required
+                      <i>		
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                          <path d="M0 0h24v24h-24z" fill="none"/>
+                          <path d="M1 21h22l-11-19-11 19zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+                      </svg>
+                      </i>
+                    </errorp>
+                  </div>
+                  <div class="row">
+                    <button id="submit" type="submit" ripple>Sign in</button>
+                  </div>
+                  </form>
+<!-- 
+
+                <p class="card-description">Start your journey with Slash...</p> -->
+              </div>
+              <div class="card-footer">
+                <div class="follow float-left">                  <input type="checkbox" id="rem">
+                  <label for="rem">Stay Signed in</label></div>
+                <div class="d-inline float-right d-md-block">
+                  <a href="#pablo" class="btn-icon btn-round mr-1 btn btn-dribbble"><i class="fab fa-dribbble"></i></a>
+                  <a href="#pablo" class="btn-icon btn-round mr-1 btn btn-linkedin"><i class="fab fa-linkedin"></i></a>
+                  <a href="#pablo" class="btn-icon btn-round btn btn-behance"><i class="fab fa-behance"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>        
+        
+        </div><!-- End Content Div -->
+      </div><!-- End Main Div -->
+    </div><!-- End Container -->
+  
+    <script src="vendor\jquery\jquery.min.js"></script>
+  
+    <script>
+$(document).ready(function() {
+$(function(){
+  
+  var animationLibrary = 'animate';
+  
+  $.easing.easeOutQuart = function (x, t, b, c, d) {
+    return -c * ((t=t/d-1)*t*t*t - 1) + b;
+  };
+  $('[ripple]:not([disabled],.disabled)')
+  .on('mousedown', function( e ){
+    
+    var button = $(this);
+    var touch = $('<touch><touch/>');
+    var size = button.outerWidth() * 1.8;
+    var complete = false;
+    
+    $(document)
+    .on('mouseup',function(){
+      var a = {
+        'opacity': '0'
+      };
+      if( complete === true ){
+        size = size * 1.33;
+        $.extend(a, {
+          'height': size + 'px',
+          'width': size + 'px',
+          'margin-top': -(size)/2 + 'px',
+          'margin-left': -(size)/2 + 'px'
+        });
+      }
+        
+      touch
+      [animationLibrary](a, {
+        duration: 500,
+        complete: function(){touch.remove();},
+        easing: 'swing'
+      });
+    });
+    
+    touch
+    .addClass( 'touch' )
+    .css({
+      'position': 'absolute',
+      'top': e.pageY-button.offset().top + 'px',
+      'left': e.pageX-button.offset().left + 'px',
+      'width': '0',
+      'height': '0'
+    });
+    
+    /* IE8 will not appendChild */
+    button.get(0).appendChild(touch.get(0));
+    
+    touch
+    [animationLibrary]({
+      'height': size + 'px',
+      'width': size + 'px',
+      'margin-top': -(size)/2 + 'px',
+      'margin-left': -(size)/2 + 'px'
+    }, {
+      queue: false,
+      duration: 500,
+      'easing': 'easeOutQuart',
+      'complete': function(){
+        complete = true
+      }
+    });
+  });
+});
+
+var username = $('#username'), 
+    password = $('#password'), 
+    erroru = $('erroru'), 
+    errorp = $('errorp'), 
+    submit = $('#submit'),
+    udiv = $('#u'),
+    pdiv = $('#p');
+
+username.blur(function() {
+  if (username.val() == '') {
+    udiv.attr('errr','');
+  } else {
+    udiv.removeAttr('errr');
+  }
+});
+
+password.blur(function() {
+if(password.val() == '') {
+    pdiv.attr('errr','');
+  } else {
+    pdiv.removeAttr('errr');
+  }
+});
+
+submit.on('click', function(event) {
+  event.preventDefault();
+
+  /* Change opacity of a background */
+
+  if (username.val() == '') {
+    udiv.attr('errr','');
+  } else {
+    udiv.removeAttr('errr');
+  } 
+  if(password.val() == '') {
+    pdiv.attr('errr','');
+  } else {
+    pdiv.removeAttr('errr');
+  }
+});
+});
+    </script> 
+  </body>
+
+
+</html>
