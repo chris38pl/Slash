@@ -1,0 +1,86 @@
+<html lang="en" class="no-js">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tiles - Krzysztof Krawiec</title>
+
+  <!-- Bootstrap core CSS -->
+  <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+
+  <!-- Style CSS -->
+  <link href="custom/css/style.css" rel="stylesheet">
+
+  <link href="vendor/fontawesome/css/all.css" rel="stylesheet">
+  <!--load all styles -->
+
+</head>
+
+<body>
+
+  <div class="container"><!-- Container -->
+    <div class="main"><!-- Main Div -->
+      <!-- Custom Background -->
+<!--       <div class="stars"></div>
+      <div class="twinkling"></div>
+      <div class="clouds"></div>
+      <div class="custom-bg-solid"></div>
+      <div class="custom-bg"></div> -->
+
+<!--       <iframe src="custom/assets/light-sabers.svg" width="500" height="500" sandbox>
+        <img src="custom/assets/light-sabers.svg" alt="Triangle with three unequal sides" />
+    </iframe> -->
+
+<!--     <div id="test" style="content: url(custom/assets/light-sabers.svg); width: 200px; height: 200px;"></div> -->
+
+      <div class="content">
+        <div class="row">
+          <div class="ml-auto mr-auto text-center mb-5 col-lg-8">
+            <h2 class="title">Some of Our Awesome Products - 2</h2>
+            <div class="section-space"></div>
+          </div>
+        </div>
+
+        <ul class="tiles">
+          <li class="tile-item">
+            <a class="active tile-content"><i class="fab fa-accessible-icon"></i>Project 1</a>
+          </li>
+          
+          <li class="tile-item">
+            <a class="tile-content"><i class="fab fa-cc-visa"></i>Project 2</a>
+          </li>
+          
+          <li class="tile-item">
+            <a class="tile-content"><i class="fab fa-accessible-icon"></i>Project 3</a>
+          </li>
+          
+          <li class="tile-item">
+            <a class="tile-content"><i class="fab fa-accessible-icon"></i>Project 4</a>
+          </li>
+          
+          <li class="tile-item">
+            <a class="tile-content"><i class="fab fa-accessible-icon"></i>Project 5</a>
+          </li>
+
+        </ul>
+      
+      
+      </div><!-- End Content Div -->
+    </div><!-- End Main Div -->
+  </div><!-- End Container -->
+
+  <script src="vendor\jquery\jquery.min.js"></script>
+
+  <script>
+    const items = document.querySelectorAll(".tile-content");
+    items.forEach(item => item.addEventListener('click', toggleActive));
+
+    function toggleActive(){
+      $('.tile-content.active').not(this).removeClass('active');
+      $(this).toggleClass('active');
+    }
+  </script> 
+</body>
+
+</html>
