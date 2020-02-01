@@ -193,6 +193,7 @@ submit.on('click', function(event) {
   event.preventDefault();
 
   $( ".card" ).addClass("card-clicked");
+  $( ".card-avatar img" ).addClass("spin");
 
   /* Change opacity of a background */
     $( ".thunder1" ).animate({
@@ -237,6 +238,10 @@ submit.on('click', function(event) {
         $( ".thunder2" ).css("opacity",0);
       });
     });
+
+    setTimeout(function(){
+      $( ".card-avatar img" ).removeClass("spin");
+    }, 600);
 
   if (username.val() == '') {
     udiv.attr('errr','');
