@@ -32,7 +32,7 @@
     margin-top: 2.5vh;
     margin-bottom: 2.5vh;
     text-align: center;
-    background:#1f2251;
+    background:rgba(31, 34, 81, 1); /* #1f2251; */
     border: 0;
     position: relative;
     width: 100%;
@@ -337,12 +337,22 @@ button[type="submit"]:focus {
     box-shadow: 0 0 1em rgb(18, 18, 49);
     min-height: 95vh;
 }
+
 .card:hover{
     border:1px solid #1d8cf8;
 }
 
+.card-clicked{
+  border: 5px solid #1d8cf8;
+  box-shadow:
+        0 0 1px 1px #fff,  /* inner white */
+        0 0 3px 3px #1d8cf8; /* outer cyan */
+}
+
 .clouds{
     opacity:0.6;
+    transition: 0.2s ease all;
+    
 }
 
 
@@ -350,12 +360,54 @@ button[type="submit"]:focus {
   max-width:30vw;
 }
 
+.thunder1 {
+  position:fixed;
+  top:0;
+  left:0%;
+  width:100%;
+  height:100%;
+  display:block;
+  background:transparent url(../assets/light1.png) repeat top center;
+  background-repeat: no-repeat;
+  background-position: left;
+  opacity:0;
+  z-index:0;  
+
+  animation-duration: 3s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+}
+
+.thunder2 {
+  position:fixed;
+  top:0;
+  right:0%;
+  width:100%;
+  height:100%;
+  display:block;
+  background:transparent url(../assets/light2.png) repeat top center;
+  background-repeat: no-repeat;
+  background-position: right;
+  opacity:0;
+  z-index:0;  
+
+  animation-duration: 3s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+}
+
 /* On screens that are 992px or less, set the background color to blue */
 @media screen and (max-width: 992px) {
   .auth{
     min-width:50vw;
   }
-
+  .thunder1 {
+    background:transparent url(../assets/light1small.png) repeat top center;
+  }
+  .thunder2 {
+    background:transparent url(../assets/light2small.png) repeat top center;
+  }
+}
 /* On screens that are 600px or less, set the background color to olive */
 @media screen and (max-width: 600px) {
   .auth{
@@ -379,12 +431,26 @@ button[type="submit"]:focus {
     padding: 8px 30px;
     width: 94%;
   }
+
+  .card-profile{
+    background:rgba(32, 34, 78, 0.8); /* #1f2251; */
+  }
+  .thunder1 {
+    background:transparent url(../assets/light1exsmall.png) repeat top left;
+    left:-7%;
+  }
+  .thunder2 {
+    background:transparent url(../assets/light2exsmall.png) repeat bottom right;
+    right:-18%;
+    bottom:-15%;
+    top:unset;
+  }
 }
 
 /* Minimum aspect ratio */
-@media (min-aspect-ratio: 1/3) {
-  .form-group {
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-}
+  @media (min-aspect-ratio: 1/3) {
+    .form-group {
+      margin-top: 5vh;
+      margin-bottom: 5vh;
+  }
 }

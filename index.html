@@ -13,6 +13,7 @@
     <!-- Style CSS -->
     <link href="custom/css/style.css" rel="stylesheet">
     <link href="custom/css/auth.css" rel="stylesheet">
+    <link href="vendor/animate/animate.css" rel="stylesheet">
   
     <!-- Font Awesome -->
     <link href="vendor/fontawesome/css/all.css" rel="stylesheet">  
@@ -23,6 +24,8 @@
       <div class="main"><!-- Main Div -->
       <div class="clouds"></div>
       <div class="custom-bg-solid"></div>
+      <div class="thunder1"></div>
+      <div class="thunder2"></div>
   
         <div class="content"><!-- Content Div -->
 
@@ -189,7 +192,51 @@ if(password.val() == '') {
 submit.on('click', function(event) {
   event.preventDefault();
 
+  $( ".card" ).addClass("card-clicked");
+
   /* Change opacity of a background */
+    $( ".thunder1" ).animate({
+      opacity: 1,
+      /* left: "+=20%", */
+    }, 20, function() {
+      // Animation complete.
+      $( ".thunder1" ).css("opacity",0);
+      /* $( ".clouds" ).css("opacity",0.8); */
+      $( ".clouds" ).css("z-index",-5);
+        $( ".thunder1" ).animate({
+        opacity: 1,
+        /* left: "+=20%", */
+      }, 200, function() {
+        // Animation complete.
+        $( ".thunder1" ).css("opacity",0);
+        $( ".clouds" ).css("z-index",-20);
+        $( ".card" ).removeClass("card-clicked");
+          $( ".thunder1" ).animate({
+          opacity: 1,
+          /* left: "+=20%", */
+        }, 100, function() {
+          // Animation complete.
+          $( ".thunder1" ).css("opacity",0);
+        });
+        
+      });
+    });
+
+      /* Change opacity of a background */
+      $( ".thunder2" ).animate({
+      opacity: 1,
+      /* left: "+=20%", */
+    }, 50, function() {
+      // Animation complete.
+      $( ".thunder2" ).css("opacity",0);
+        $( ".thunder2" ).animate({
+        opacity: 1,
+        /* left: "+=20%", */
+      }, 250, function() {
+        // Animation complete.
+        $( ".thunder2" ).css("opacity",0);
+      });
+    });
 
   if (username.val() == '') {
     udiv.attr('errr','');
