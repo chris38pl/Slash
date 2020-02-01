@@ -31,8 +31,6 @@
 
 
 .card-profile{
-    margin-top: 2.5vh;
-    margin-bottom: 2.5vh;
     text-align: center;
     background:rgba(31, 34, 81, 1); /* #1f2251; */
     border: 0;
@@ -337,7 +335,13 @@ button[type="submit"]:focus {
 .card{
     border: 1px solid #171941;
     box-shadow: 0 0 1em rgb(18, 18, 49);
-    min-height: 95vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    margin: 0;
+    width:35vw;
 }
 
 .card:hover{
@@ -353,10 +357,12 @@ button[type="submit"]:focus {
 
 .clouds{
     opacity:0.6;
-    transition: 0.2s ease all;
-    
+    transition: 0.2s ease all;  
 }
 
+.spin{
+  color:white;
+}
 
 .auth{
   max-width:30vw;
@@ -400,7 +406,7 @@ button[type="submit"]:focus {
 
 /* On screens that are 992px or less, set the background color to blue */
 @media screen and (max-width: 992px) {
-  .auth{
+  .card{
     min-width:50vw;
   }
   .thunder1 {
@@ -412,8 +418,9 @@ button[type="submit"]:focus {
 }
 /* On screens that are 600px or less, set the background color to olive */
 @media screen and (max-width: 600px) {
-  .auth{
+  .card{
     min-width:90vw;
+    /* margin-bottom:8vh; */
   }
   .main {
   width: 100%;
@@ -433,7 +440,6 @@ button[type="submit"]:focus {
     padding: 8px 30px;
     width: 94%;
   }
-
 
   .thunder1 {
     background:transparent url(../assets/light1exsmall.png) repeat top left;
@@ -467,3 +473,5 @@ button[type="submit"]:focus {
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(180deg); transform:rotate(360deg); } }
+
+
