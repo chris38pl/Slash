@@ -12,10 +12,6 @@ body, html { font-size: 100%; padding: 0; margin: 0;}
 html {
   box-sizing: border-box;
   overflow-x: hidden;
-  height: 100%;
-  min-height: 100vh;
-  margin:0;
-  padding:0;
 }
 
 body {
@@ -23,10 +19,8 @@ body {
     color: hsla(0,0%,100%,.8);
     background-color:#171941;
     font-family: Poppins,sans-serif;
-    height: 100%;
-    min-height: 100vh;
-    margin:0;
-    padding:0;
+    /* background-image: linear-gradient(to right, rgb(0, 0, 0), 10%,  rgba(0,0,0,0)); */
+    
 }
 
 
@@ -222,8 +216,6 @@ animation:move-clouds-back 200s linear infinite;
 
 .content{
   z-index:100;
-  position:relative;
-  height:100vh;
 }
 
 .content .title {
