@@ -400,6 +400,16 @@ button[type="submit"]:focus {
   animation-iteration-count: infinite;
 }
 
+.spin-lg{
+  -webkit-animation:spin 0.4s linear 1;
+  -moz-animation:spin 0.4s linear 1;
+  animation:spin 0.4s linear 1;
+}
+
+#click-logo{
+  cursor:pointer;
+}
+
 /* On screens that are 992px or less, set the background color to blue */
 @media screen and (max-width: 992px) {
   .auth{
@@ -455,6 +465,7 @@ button[type="submit"]:focus {
     -moz-animation:spin 0.4s linear 1;
     animation:spin 0.4s linear 1;
   }
+
 }
 
 /* Minimum aspect ratio */
