@@ -33,7 +33,7 @@
             <div class="card-profile profile-bg card">
               <div style="background-image: url(&quot;https://i.pinimg.com/originals/6a/9e/2c/6a9e2c0cab11c54b4ff98db6942b1855.jpg&quot;);" class="card-header">
                 <div class="card-avatar">
-                  <a href="#pablo">
+                  <a id="click-logo">
                     <img alt="..." class="img img-raised" src="custom/assets/slash.png"></a>
                   </div>
                 </div>
@@ -187,6 +187,14 @@ if(password.val() == '') {
   } else {
     pdiv.removeAttr('errr');
   }
+});
+
+
+$('#click-logo').on('click', function(event) {
+  $( ".card-avatar img" ).addClass("spin-lg");
+  setTimeout(function(){
+      $( ".card-avatar img" ).removeClass("spin-lg");
+    }, 600);
 });
 
 submit.on('click', function(event) {
