@@ -441,8 +441,8 @@ button[type="submit"]:focus {
   }
   .thunder2 {
     background:transparent url(../assets/light2exsmall.png) repeat bottom right;
-    right:-18%;
-    bottom:-15%;
+    right:-30%;
+    bottom:-10%;
     top:unset;
   }
 }
