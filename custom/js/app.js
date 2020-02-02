@@ -60,6 +60,7 @@ function updateSigninStatus(isSignedIn,googleUser){
         $( "#sign-in-to" ).css("display","block");
         $( ".auth" ).css("max-width","30vw");
         $( "#welcome" ).css("display","none");
+        animateThunder();
     }
 
 }
