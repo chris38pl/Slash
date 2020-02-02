@@ -38,7 +38,7 @@
                   </div>
                 </div>
                 <div class="card-body">
-                <h2 class="card-title">Sign in to<br><strong class="text-info">Slash</strong></h2>
+                <h2 id="sign-in-to" class="card-title">Sign in to<br><strong class="text-info">Slash</strong></h2>
                 <form action="" id="login-form">
                   <div id="u" class="form-group">
                     <input id="username" spellcheck=false class="form-control" name="username" type="text" size="18" alt="login" required="">
@@ -69,11 +69,15 @@
                       </i>
                     </errorp>
                   </div>
-                  <div class="row">
+                  <div id="SignInForm" class="row">
                     <button id="submit" type="submit" ripple>Sign in</button>
-                  </div>
-                  <div class="continue-with">or <span class="google-account-logout">continue</span> with your <span class="google-account">Google account</span></div>
+                    <div class="continue-with">or <span class="google-account-logout">continue</span> with your <span id="google-account" class="google-account">Google account</span></div>
+                  </div>            
                   </form>
+                  <h2 id="welcome" class="card-title">Welcome<br><strong id="user-hello" class="text-info user"></strong></h2>
+                  <div id="SignOutForm" class="row">
+                    <button id="google-account-logout" type="button">Logout</button>
+                  </div>
 <!-- 
 
                 <p class="card-description">Start your journey with Slash...</p> -->

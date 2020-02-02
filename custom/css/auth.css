@@ -4,6 +4,9 @@
 
 .auth {
     margin: auto;
+    transition: 1s ease all;
+    -moz-transition: 1s ease all;
+    -webkit-transition: 1s ease all;
 }
 
 .card .card-header {
@@ -220,7 +223,7 @@ input[type=checkbox]:checked + label:before
     background-size: 11px auto;
 }
 
-button[type="submit"] {
+button[type="submit"], #google-account-logout {
 
     width:50%;
     margin:auto;
@@ -242,7 +245,7 @@ button[type="submit"] {
     
 }
 
-button[type="submit"]:focus {
+button[type="submit"]:focus, #google-account-logout  {
     outline: none;
 }
 
@@ -449,7 +452,7 @@ button[type="submit"]:focus {
     margin-left: auto;
   }
 
-  #submit{
+  #submit, #google-account-logout{
     margin-top: 7px;
     padding: 8px 30px;
     width: 94%;
@@ -522,4 +525,12 @@ button[type="submit"]:focus {
 
 .api-test{
   display:none
+}
+
+#SignInForm{
+  display:block;
+}
+
+#google-account-logout{
+  margin-top:30px;
 }

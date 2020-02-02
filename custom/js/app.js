@@ -1,10 +1,10 @@
 // API Options
 const CLIENT_ID = "302212346830-ds9p1ef0bch3fpcterj5cgjpeqfon3mb.apps.googleusercontent.com";
 const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest"];
-const SCOPES = "https://www.googleapis.com/auth/youtube.readonly";
+const SCOPES = ["https://www.googleapis.com/auth/youtube.readonly","https://www.googleapis.com/auth/userinfo.profile"];
 
-const authorizeButton = document.getElementsByClassName('google-account');
-const signoutButton = document.getElementsByClassName('google-account-logout');
+const authorizeButton = document.getElementById('google-account');
+const signoutButton = document.getElementById('google-account-logout');
 
 const defaultChannel = "techguyweb"
 
@@ -18,10 +18,9 @@ function initClient(){
     gapi.client.init({
         discoveryDocs: DISCOVERY_DOCS,
         clientId: CLIENT_ID,
-        scope:SCOPES,
+        scope:SCOPES[1],
         immediate:false
     }).then(() => {
-        console.log(gapi.auth2)
         // Listen for sign in state changes
         gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
 
@@ -31,32 +30,47 @@ function initClient(){
        /*  authorizeButton.onClick = handleAuthClick(); */
 
         $(document).on('click',".google-account",handleAuthClick);
-        /* signoutButton.onClick = handleSignoutClick(); */
+        $(document).on('click',"#google-account-logout",handleSignoutClick);
+        /* signoutButton.onClick = handleSignoutClick; */
     });
 }
 
 // Update UI sign in changes
-function updateSigninStatus(isSignedIn){
-    alert(authorizeButton)
-
+function updateSigninStatus(isSignedIn,googleUser){
     if(isSignedIn){
-        authorizeButton.style.display = "none"; 
-        $(".api-test").style("display","block")
+        $( "#SignInForm" ).css("display","none");
+        $( ".form-group" ).css("display","none");
+        $( "#SignOutForm" ).css("display","block");
+        $( ".auth" ).css("max-width","60vw");
+        $( "#welcome" ).css("display","block");
+        
+        gapi.client.load('oauth2', 'v2', function() {
+            gapi.client.oauth2.userinfo.get().execute(function(resp) {
+                $( "#user-hello" ).html(resp.name)
+                $( "#sign-in-to" ).css("display","none")
+                
+            })
+          });
+
         getChannel(defaultChannel);
     }else{
-        authorizeButton.style.display = "block";
+        $( "#SignInForm" ).css("display","block");
+        $( ".form-group" ).css("display","block");
+        $( "#SignOutForm" ).css("display","none");
+        $( "#sign-in-to" ).css("display","block");
+        $( ".auth" ).css("max-width","30vw");
+        $( "#welcome" ).css("display","none");
     }
 
 }
 
 // Handle Login
 function handleAuthClick(){
-    alert('hi')
-    /* gapi.auth2.getAuthInstance().signIn(); */
+    gapi.auth2.getAuthInstance().signIn();
 }
 
 // Handle Logout
-function handleSigniutClick(){
+function handleSignoutClick(){
     gapi.auth2.getAuthInstance().signOut();
 }
 
