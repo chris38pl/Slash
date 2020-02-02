@@ -37,9 +37,10 @@ function initClient(){
 
 // Update UI sign in changes
 function updateSigninStatus(isSignedIn){
+    alert(authorizeButton)
 
     if(isSignedIn){
-        authorizeButton.style.display = "none";
+        authorizeButton.style.display = "none"; 
         $(".api-test").style("display","block")
         getChannel(defaultChannel);
     }else{
