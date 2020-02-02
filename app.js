@@ -48,9 +48,12 @@ function updateSigninStatus(isSignedIn,googleUser){
             gapi.client.oauth2.userinfo.get().execute(function(resp) {
                 $( "#user-hello" ).html(resp.name)
                 $( "#sign-in-to" ).css("display","none")
-                animateThunder();
+        
             })
           });
+          setTimeout(function(){
+            animateThunder();
+        }, 800);
 
         getChannel(defaultChannel);
     }else{
