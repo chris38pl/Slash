@@ -237,7 +237,7 @@ button[type="submit"] {
     border: none;
     position: relative;
     overflow: hidden;
-    padding: 12px 30px;
+    padding: 10px 30px;
     border-radius: .4285rem;
     
 }
@@ -328,7 +328,7 @@ button[type="submit"]:focus {
 }
 
 .card-title{
-    line-height: 1.05!important;
+    line-height: 1!important;
 }
 .card-footer i{
     color:#1d8cf8 ;
@@ -345,10 +345,10 @@ button[type="submit"]:focus {
 }
 
 .card-clicked{
-  border: 5px solid #1d8cf8;
   box-shadow:
-        0 0 1px 1px #fff,  /* inner white */
-        0 0 3px 3px #1d8cf8; /* outer cyan */
+        0 0 1px 1px #1d8cf8,  /* inner white */
+        0 0 2px 2px #fff,  /* inner white */
+        0 0 20px 3px #b7dbff; /* outer cyan */
 }
 
 .clouds{
@@ -424,6 +424,14 @@ button[type="submit"]:focus {
 }
 /* On screens that are 600px or less, set the background color to olive */
 @media screen and (max-width: 600px) {
+
+  .card-clicked{
+    box-shadow:
+          0 0 1px 1px #1d8cf8,  /* inner white */
+          0 0 2px 2px #fff,  /* inner white */
+          0 0 5px 3px #1d8cf8; /* outer cyan */
+  }
+
   .auth{
     min-width:90vw;
     margin-bottom:8vh;
@@ -481,3 +489,37 @@ button[type="submit"]:focus {
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(180deg); transform:rotate(360deg); } }
 
+.register{
+  font-size: 15px;
+  color: #1d8cf8 !important;
+  cursor:pointer;
+}
+
+.continue-with{
+  font-size:13px;
+  margin-top:8px;
+  color: #999
+}
+.google-account{
+  cursor:pointer;
+  color:#1d8cf8;
+  font-weight:600;
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.card-body{
+  padding: 1rem;
+}
+
+
+.card-footer {
+  padding: .6rem 1.25rem;
+}
+
+.api-test{
+  display:none
+}
